@@ -35,16 +35,15 @@ ChatLogic::~ChatLogic()
     // delete chatbot instance
     delete _chatBot;
 
-    // delete all nodes
-    for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
-    {
-        delete *it;
-    }
 
-    // delete all edges
-    for (auto it = std::begin(_edges); it != std::end(_edges); ++it)
+
+    for (auto node : _nodes)
     {
-        delete *it;
+        delete node;
+    }
+    for (auto edge : _edges)
+    {
+        delete edge;
     }
 
     ////

@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "graphedge.h"
 #include "graphnode.h"
 
@@ -11,7 +13,7 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+    // delete _chatBot; 
 
     ////
     //// EOF STUDENT CODE
