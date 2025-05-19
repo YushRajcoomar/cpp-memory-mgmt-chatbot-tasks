@@ -20,9 +20,19 @@ ChatLogic::ChatLogic()
     // create instance of chatbot
     _chatBot = new ChatBot("../images/chatbot.png");
 
-    // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
+    // // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
     _chatBot->SetChatLogicHandle(this);
 
+    /// Ro5 Testing code;
+
+    ChatBot c2(*_chatBot); // copy constructor
+
+    ChatBot c3;
+    c3 = *_chatBot; // copy assignment operator
+
+    ChatBot c4 = std::move(c3); // move assignment operator
+
+    c3 = std::move(c2); // move assignment operator
     ////
     //// EOF STUDENT CODE
 }
@@ -33,18 +43,18 @@ ChatLogic::~ChatLogic()
     ////
 
     // delete chatbot instance
-    delete _chatBot;
+    // delete _chatBot;
 
 
 
-    for (auto node : _nodes)
-    {
-        delete node;
-    }
-    for (auto edge : _edges)
-    {
-        delete edge;
-    }
+    // for (auto node : _nodes)
+    // {
+    //     delete node;
+    // }
+    // for (auto edge : _edges)
+    // {
+    //     delete edge;
+    // }
 
     ////
     //// EOF STUDENT CODE

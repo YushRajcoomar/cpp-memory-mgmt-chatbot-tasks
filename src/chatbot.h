@@ -21,11 +21,25 @@ private:
     // proprietary functions
     int ComputeLevenshteinDistance(std::string s1, std::string s2);
 
+// RULE OF FIVE 
+// 1. destructor
+// 2. copy constructor
+// 3. copy assignment operator
+// 4. move constructor
+// 5. move assignment operator
+
 public:
     // constructors / destructors
     ChatBot();                     // constructor WITHOUT memory allocation
     ChatBot(std::string filename); // constructor WITH memory allocation
-    ~ChatBot();
+
+    ChatBot(const ChatBot& source); // Copy constructor
+    ChatBot& operator=(const ChatBot& source); // Copy assignment operator
+
+    ChatBot(ChatBot&& source); // move constructor
+    ChatBot& operator=(ChatBot&& source); // Move assignment operator
+
+    ~ChatBot(); // Destructor
 
     //// STUDENT CODE
     ////
