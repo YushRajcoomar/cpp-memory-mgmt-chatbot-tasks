@@ -18,21 +18,21 @@ ChatLogic::ChatLogic()
     ////
 
     // create instance of chatbot
-    _chatBot = new ChatBot("../images/chatbot.png");
+    // _chatBot = new ChatBot("../images/chatbot.png");
 
     // // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
-    _chatBot->SetChatLogicHandle(this);
+    // _chatBot->SetChatLogicHandle(this);
 
     /// Ro5 Testing code;
 
-    ChatBot c2(*_chatBot); // copy constructor
+    // ChatBot c2(*_chatBot); // copy constructor
 
-    ChatBot c3;
-    c3 = *_chatBot; // copy assignment operator
+    // ChatBot c3;
+    // c3 = *_chatBot; // copy assignment operator
 
-    ChatBot c4 = std::move(c3); // move constructor
+    // ChatBot c4 = std::move(c3); // move constructor
 
-    c3 = std::move(c2); // move assignment operator
+    // c3 = std::move(c2); // move assignment operator
     ////
     //// EOF STUDENT CODE
 }
@@ -185,6 +185,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         ////
                         //// EOF STUDENT CODE
                     }
+                    
                 }
                 else
                 {
@@ -224,9 +225,14 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
         }
     }
 
+
+    ChatBot chatbot("../images/chatbot.png");
+    SetChatbotHandle(&chatbot);
+    chatbot.SetChatLogicHandle(this);
+
     // add chatbot to graph root node
-    _chatBot->SetRootNode(rootNode);
-    rootNode->MoveChatbotHere(_chatBot);
+    chatbot.SetRootNode(rootNode);
+    rootNode->MoveChatbotHere(std::move(chatbot));
     
     ////
     //// EOF STUDENT CODE
